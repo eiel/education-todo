@@ -5,9 +5,6 @@
         <div className="todo">
           <div className="todo-wrapper">
             <h1>TODOリスト</h1>
-            <ul className="todo-tasks">
-              {this.tasks()}
-            </ul>
             <form className="todo-new" onSubmit={this.handleNewTask}>
               <input type="text" ref="new_task" className="todo-input" />
               <input type="submit"
@@ -15,6 +12,9 @@
                 value="登録"
               />
             </form>
+            <ul className="todo-tasks">
+              {this.tasks()}
+            </ul>
           </div>
         </div>
       );
@@ -25,12 +25,18 @@
         var handleClick = function() {
           this.handleDone(task);
         }.bind(this);
+        var priority = "priority-middle";
+        if (task.priority == "高") { priority = "priority-high"; }
+        if (task.priority == "低") { priority = "priority-low"; }
         return (
           <li className="todo-task" key={task.id}>
-            {task.name}
-            <button className="todo-done button" onClick={handleClick}>
-              完了
-            </button>
+            <div className={priority}>
+              {task.priority}
+              {task.name}
+              <button className="todo-done button" onClick={handleClick}>
+                完了
+              </button>
+            </div>
           </li>
         );
       }.bind(this));
