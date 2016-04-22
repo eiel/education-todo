@@ -41,6 +41,7 @@
 .todo-task div{
     padding: 10px;
     height: 40px;
+    line-height:40px;
 }
 
 .todo .todo-task button {
