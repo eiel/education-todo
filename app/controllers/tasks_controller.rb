@@ -4,7 +4,10 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all.where(done: false)
+    @tasks = Task.all
+      .where(done: false)
+      .order(:priority)
+      .order(:created_at).reverse_order
   end
 
   def done
