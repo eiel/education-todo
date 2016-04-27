@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     member do
       post :done
       post :high
+      post :middle
       post :low
     end
   end

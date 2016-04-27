@@ -20,6 +20,11 @@ class TasksController < ApplicationController
     render :index
   end
 
+  def middle
+    @task.middle
+    render :index
+  end
+
   def low
     @task.low
     render :index
