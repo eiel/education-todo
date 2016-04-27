@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :tasks do
     member do
       post :done
+      post :high
+      post :low
     end
   end
 

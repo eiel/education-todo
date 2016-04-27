@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy, :done]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :done, :high, :low]
 
   # GET /tasks
   # GET /tasks.json
@@ -12,6 +12,16 @@ class TasksController < ApplicationController
 
   def done
     @task.update(done: true)
+    render :index
+  end
+
+  def high
+    @task.high
+    render :index
+  end
+
+  def low
+    @task.low
     render :index
   end
 
